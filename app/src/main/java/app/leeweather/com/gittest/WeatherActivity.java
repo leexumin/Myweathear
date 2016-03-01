@@ -66,16 +66,13 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         refreshWeather.setOnClickListener(this);
 
 
-     if (!TextUtils.isEmpty(countyCode)){
+        if (!TextUtils.isEmpty(countyCode)){
             //有县级代号时就去查询天气代号
 
-          date1.setText("正在很努力地同步...");
+            date1.setText("正在很努力地同步...");
             weatherInfoLayout.setVisibility(View.INVISIBLE);
             cityNameText.setVisibility(View.INVISIBLE);
-
-          queryWeatherCode(countyCode);
-
-          //原为queryWeatherCode
+            queryWeatherCode(countyCode);
 
 
 
@@ -83,13 +80,23 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
 
 
 
-    }else {
-        //没有县级代号时就直接查询显示本地天气
-           showWeather();
+
+
+        }else {
+            //没有县级代号时就直接查询显示本地天气
+            showWeather();
+            //登录更新
+            currentDataText.setText("正在更新天气...");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            String citykey =  prefs.getString("citykey", "");
+            if (!TextUtils.isEmpty(citykey)){
+                queryWeatherInfo(citykey);
+            }
         }
 
+
     }
-    //刷新和返回菜单
+
 
     @Override
     public void onClick(View v) {
@@ -130,7 +137,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
       private void queryWeatherInfo(String weatherCode){
       String address ="http://wthrcdn.etouch.cn/weather_mini?citykey="+weatherCode;
 
-        queryFromServer(address,"weatherCode",weatherCode);
+        queryFromServer(address, "weatherCode", weatherCode);
     }
     /*根据传入的地址和类型，去向服务器查询天气的代号或天气信息
 
@@ -154,13 +161,13 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
                     }
 
 
-                } else if ("weatherCode".equals(type) || "citykey".equals(type) ) {
+                } else if ("weatherCode".equals(type) || "citykey".equals(type)) {
                     //处理从服务器返回的信息
-                    Utility.handleWeatherResponse(WeatherActivity.this, response,citykey);
+                    Utility.handleWeatherResponse(WeatherActivity.this, response, citykey);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                          showWeather();
+                            showWeather();
                         }
                     });
                 }
@@ -199,8 +206,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         currentDataText.setText(prefs.getString("current_data", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
-        Intent intent = new Intent(this,AutoUpdateService.class);
-        startService(intent);
+
 
     }
+
 }
