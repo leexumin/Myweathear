@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/weatherbackground"
+        android:background="@drawable/blue_bg"
 
         >
         <TextView
@@ -49,8 +49,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/date1_text"
             android:layout_alignParentLeft="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_alignParentTop="true"
             android:textColor="#FFF"
             android:textSize="18sp"
 
@@ -60,8 +59,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/day1weather_text"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="215dp"
             android:textColor="#FFF"
             android:textSize="18sp"
             />
@@ -70,8 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/zhuyi_text"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="155dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="245dp"
             android:textColor="#FFF"
             android:textSize="20sp"
             />
@@ -81,11 +80,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/dangqianwendu"
-            android:layout_marginTop="275dp"
-
+            android:layout_marginTop="80dp"
             android:layout_centerHorizontal="true"
             android:textColor="#FFF"
-            android:textSize="35sp"
+            android:textSize="80sp"
             />
         <TextView
 
