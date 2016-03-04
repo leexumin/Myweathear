@@ -96,9 +96,20 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
 
 
     }
+        @Override
+        protected void onResume(){
+            super.onResume();
+            //桌面切回活动更新
+            currentDataText.setText("正在更新天气...");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            String citykey =  prefs.getString("citykey", "");
+            if (!TextUtils.isEmpty(citykey)){
+                queryWeatherInfo(citykey);
+            }
 
+        }
 
-    @Override
+       @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.switch_city:
