@@ -106,12 +106,25 @@ public class Utility {
             String riqi1 = fore1.getString("date");
             String diwen1 =fore1.getString("low");
             String type1 = fore1.getString("type");
+            /*
+            获取第三天信息
+             */
+            JSONObject fore2 = forecast.getJSONObject(2);
+            String gaowen2 = fore2.getString("high");
+            String fengli2 = fore2.getString("fengli");
+            String fengxiang2= fore2.getString("fengxiang");
+            String riqi2 = fore2.getString("date");
+            String diwen2 =fore2.getString("low");
+            String type2 = fore2.getString("type");
+
+
 
 
 
            saveWeatherInfo(context,wendu,zhuyi,cityname,gaowen,fengli,
                    fengxiang,riqi,diwen,type,gaowen1,
-                   fengli1,fengxiang1,riqi1,diwen1,type1,citykey);
+                   fengli1,fengxiang1,riqi1,diwen1,type1,gaowen2,
+                   fengli2,fengxiang2,riqi2,diwen2,type2,citykey);
 
         }catch (JSONException e){
             e.printStackTrace();
@@ -123,7 +136,10 @@ public class Utility {
  public static void saveWeatherInfo(Context context,String wendu,String zhuyi,String cityname,
                                 String   gaowen, String fengli,
                                    String fengxiang,String riqi,String diwen, String type,String gaowen1,
-                              String  fengli1,String fengxiang1,String riqi1,String diwen1,String type1,String citykey){
+                              String  fengli1,String fengxiang1,String riqi1,String diwen1,String type1,
+                                    String gaowen2,
+                                    String  fengli2,String fengxiang2,String riqi2,String diwen2,String type2,
+                                    String citykey){
      SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日", Locale.CHINA);
       SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
      editor.putBoolean("city_selected", true);
@@ -139,12 +155,19 @@ public class Utility {
         editor.putString("fengli",fengli);
         editor.putString("fengxiang",fengxiang);
         //次日天气的临时存储
-     editor.putString("gaowen1",gaowen1);
-     editor.putString("diwen1",diwen1);
-     editor.putString("d2",riqi1);
-     editor.putString("type1",type1);
-     editor.putString("fengli1",fengli1);
-     editor.putString("fengxiang1",fengxiang1);
+        editor.putString("gaowen1",gaowen1);
+        editor.putString("diwen1",diwen1);
+        editor.putString("d2",riqi1);
+        editor.putString("type1",type1);
+        editor.putString("fengli1",fengli1);
+        editor.putString("fengxiang1",fengxiang1);
+     //后天天气的临时存储
+        editor.putString("gaowen2",gaowen2);
+        editor.putString("diwen2",diwen2);
+        editor.putString("d3",riqi2);
+        editor.putString("type2",type2);
+        editor.putString("fengli2",fengli2);
+        editor.putString("fengxiang2",fengxiang2);
 
      editor.putString("current_data",sdf.format(new Date()));
         editor.commit();

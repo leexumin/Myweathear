@@ -47,6 +47,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/current_data"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/date1_text"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
@@ -70,7 +80,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/zhuyi_text"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="245dp"
+            android:layout_marginTop="255dp"
             android:textColor="#FFF"
             android:textSize="20sp"
             />
@@ -89,7 +99,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="375dp"
+            android:layout_marginTop="330dp"
             android:id="@+id/date2_text"
             android:layout_alignParentLeft="true"
             android:textColor="#FFF"
@@ -102,20 +112,34 @@
             android:layout_height="wrap_content"
             android:id="@+id/day2weather_text"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="425dp"
+            android:layout_marginTop="350dp"
             android:textColor="#FFF"
             android:textSize="18sp"
             />
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:id="@+id/current_data"
-            android:layout_centerHorizontal="true"
+            android:layout_marginTop="405dp"
+            android:id="@+id/date3_text"
+            android:layout_alignParentLeft="true"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/day3weather_text"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="425dp"
             android:textColor="#FFF"
             android:textSize="18sp"
             />
+
+
+
 
         <LinearLayout
         android:layout_width="wrap_content"

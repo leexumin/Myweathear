@@ -31,11 +31,16 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
 
     //用于显示当前气温
     private TextView nowTemptext;
+    //显示明天天气描述
     private TextView D2weatherDespText;
     //用于显示明天日期
     private TextView date2;
     //用于显示当前日期
     private TextView currentDataText;
+    //用于后天天气日期
+    private TextView date3;
+    //用于后天天气描述
+    private TextView D3weatherDespText;
     //切换城市按钮
     private Button switchCity;
     //更新天气按钮
@@ -50,6 +55,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         cityNameText = (TextView)findViewById(R.id.city_name);
         date1 = (TextView)findViewById(R.id.date1_text);
         zhuyiText =(TextView)findViewById(R.id.zhuyi_text);
+        date3 = (TextView)findViewById(R.id.date3_text);
+        D3weatherDespText=(TextView)findViewById(R.id.day3weather_text);
         zhuyiText.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
 
         zhuyiText.getPaint().setAntiAlias(true);//抗锯齿
@@ -207,13 +214,22 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         cityNameText.setText(prefs.getString("city_name",""));
         nowTemptext.setText(prefs.getString("wendu", "")+"℃");
+        date1.setText("今天:" +" "+ prefs.getString("d1", ""));
         D1weatherDespText.setText("最"+prefs.getString("diwen","")+"、"+"最"+prefs.getString("gaowen","")+"、"+
                prefs.getString("fengxiang","")+ prefs.getString("fengli","")+"、"+prefs.getString("type",""));
-               date2.setText("明天:"+" "+prefs.getString("d2",""));
+        date2.setText("明天:"+" "+prefs.getString("d2",""));
         D2weatherDespText.setText("最"+prefs.getString("diwen1","")+"、"+"最"+prefs.getString("gaowen1","")+"、"+
                prefs.getString("fengxiang1","")+ prefs.getString("fengli1","")+"、"+prefs.getString("type1",""));
+
+
+       date3.setText("后天:"+" "+prefs.getString("d3",""));
+       D3weatherDespText.setText("最"+prefs.getString("diwen2","")+"、"+"最"+prefs.getString("gaowen2","")+"、"+
+               prefs.getString("fengxiang2","")+ prefs.getString("fengli2","")+"、"+prefs.getString("type2",""));
+
+
         zhuyiText.setText(prefs.getString("zhuyi",""));
-               date1.setText("今天:" +" "+ prefs.getString("d1", ""));
+
+
         currentDataText.setText(prefs.getString("current_data", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
