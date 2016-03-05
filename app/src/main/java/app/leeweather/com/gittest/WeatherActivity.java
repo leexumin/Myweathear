@@ -24,7 +24,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
     //用于显示今天日期
     private TextView date1;
     //用于显示第一天的天气描述
-    private TextView D1weatherDespText;
+    private TextView D1weatherDespText1;
+    private TextView D1weatherDespText2;
     //用于天气提醒
     private  TextView zhuyiText;
 
@@ -62,7 +63,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         zhuyiText.getPaint().setAntiAlias(true);//抗锯齿
         D2weatherDespText =(TextView)findViewById(R.id.day2weather_text);
 
-        D1weatherDespText= (TextView)findViewById(R.id.day1weather_text);
+        D1weatherDespText1= (TextView)findViewById(R.id.day1weather_text_1);
+        D1weatherDespText2= (TextView)findViewById(R.id.day1weather_text_2);
         nowTemptext = (TextView)findViewById(R.id.dangqianwendu);
         date2= (TextView)findViewById(R.id.date2_text);
         currentDataText= (TextView)findViewById(R.id.current_data);
@@ -215,8 +217,9 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         cityNameText.setText(prefs.getString("city_name",""));
         nowTemptext.setText(prefs.getString("wendu", "")+"℃");
         date1.setText("今天:" +" "+ prefs.getString("d1", ""));
-        D1weatherDespText.setText("最"+prefs.getString("diwen","")+"、"+"最"+prefs.getString("gaowen","")+"、"+
+       D1weatherDespText1.setText(
                prefs.getString("fengxiang","")+ prefs.getString("fengli","")+"、"+prefs.getString("type",""));
+        D1weatherDespText2.setText("最"+prefs.getString("diwen","")+"、"+"最"+prefs.getString("gaowen",""));
         date2.setText("明天:"+" "+prefs.getString("d2",""));
         D2weatherDespText.setText("最"+prefs.getString("diwen1","")+"、"+"最"+prefs.getString("gaowen1","")+"、"+
                prefs.getString("fengxiang1","")+ prefs.getString("fengli1","")+"、"+prefs.getString("type1",""));
