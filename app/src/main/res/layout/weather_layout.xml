@@ -4,17 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/weatherbackground"
-        >
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/blue_bg"
 
+        >
         <Button
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:id="@+id/switch_city"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
             android:background= "@drawable/homeselector"
 
@@ -23,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
             android:textColor="#FFFFE0"
             android:textSize="24sp"
             android:id="@+id/city_name"
@@ -32,23 +38,15 @@
             android:layout_height="30dp"
             android:id="@+id/refresh_weather"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
+            android:layout_alignParentTop="true"
             android:background="@drawable/refreshselector"
             />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/blue_bg"
 
-        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
             android:id="@+id/current_data"
             android:layout_centerHorizontal="true"
             android:textColor="#FFF"
@@ -58,8 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/date1_text"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
             android:textColor="#FFF"
             android:textSize="18sp"
 

@@ -50,6 +50,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.weather_layout);
         //初始化控件
         weatherInfoLayout = (LinearLayout)findViewById(R.id.weather_info_layout);
@@ -216,16 +217,16 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         cityNameText.setText(prefs.getString("city_name",""));
         nowTemptext.setText(prefs.getString("wendu", "")+"℃");
-        date1.setText("今天:" +" "+ prefs.getString("d1", ""));
+        date1.setText( prefs.getString("d1", ""));
        D1weatherDespText1.setText(
                prefs.getString("fengxiang","")+ prefs.getString("fengli","")+"、"+prefs.getString("type",""));
         D1weatherDespText2.setText("最"+prefs.getString("diwen","")+"、"+"最"+prefs.getString("gaowen",""));
-        date2.setText("明天:"+" "+prefs.getString("d2",""));
+        date2.setText(prefs.getString("d2",""));
         D2weatherDespText.setText("最"+prefs.getString("diwen1","")+"、"+"最"+prefs.getString("gaowen1","")+"、"+
                prefs.getString("fengxiang1","")+ prefs.getString("fengli1","")+"、"+prefs.getString("type1",""));
 
 
-       date3.setText("后天:"+" "+prefs.getString("d3",""));
+       date3.setText(prefs.getString("d3",""));
        D3weatherDespText.setText("最"+prefs.getString("diwen2","")+"、"+"最"+prefs.getString("gaowen2","")+"、"+
                prefs.getString("fengxiang2","")+ prefs.getString("fengli2","")+"、"+prefs.getString("type2",""));
 
